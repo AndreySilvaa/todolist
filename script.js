@@ -23,7 +23,7 @@ function handleItem(nameitem){ // 4
                 itemdiv.removeChild(item)
 
                 todoitens = todoitens.filter((el) => {
-                    return el !== nameitem
+                    return (el !== nameitem)
                 })
             })
 
@@ -31,9 +31,10 @@ function handleItem(nameitem){ // 4
             item.querySelector(".close").addEventListener("click", () =>{
                 itemdiv.removeChild(item)
 
-                todoitens = todoitens.filter((el) => {
-                    return el !== nameitem
-                })
+                let index = todoitens.indexOf(nameitem)
+
+                todoitens.splice(index, 1)
+                setLocalStorage(todoitens)
             })
         }
     })
@@ -43,7 +44,7 @@ function getList(todoitens){  // 3
     itemdiv.innerHTML = ''
 
     todoitens.forEach(item => {
-        itemdiv.insertAdjacentHTML("beforeend", `<div class="list"> <h5 class="fontsize item-name">${item}</h5><div><span><i class="check far fa-check-circle"></i></span><span><i class="edit fas fa-pen-square"></i></span><span><i class="close fas fa-times-circle"></i></span></div></div>`)
+        itemdiv.insertAdjacentHTML("beforeend", `<div class="list"> <h5 class="fontsize item-name">${item}</h5><div class="icons"><span><i class="check far fa-check-circle"></i></span><span><i class="edit fas fa-pen-square"></i></span><span><i class="close fas fa-times-circle"></i></span></div></div>`)
 
         handleItem(item)
     });
@@ -63,7 +64,6 @@ function getLocalStorage(){
     }else{
         todoitens = JSON.parse(lista) // Inverte uma string para objeto
         getList(todoitens)
-        console.log(lista)
     }
 
 }

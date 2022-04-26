@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
 *{
     box-sizing: border-box;
 }
@@ -15,7 +18,7 @@ body{
 }
 
 #title{
-    font-family: monospace;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 30px;
 }
 
@@ -55,11 +58,17 @@ body{
     padding: 10px;
     font-size: 20px;
     color: #4e4d4d;
+    border-bottom: 1px solid;
+    font-family: 'Patrick Hand', cursive;
 }
 
 .fontsize{
     font-size: 23px;
     margin: 15px;
+}
+
+.icons{
+    display: flex;
 }
 
 .check{
@@ -117,4 +126,14 @@ body{
 
 .hidden{
     display: none;
+}
+
+@media screen and (max-width: 500px){
+    #container{
+        width: 80%;
+    }
+
+    .fontsize{
+        max-width: 10%;
+    }
 }
